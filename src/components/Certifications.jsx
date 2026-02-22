@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const Certifications = () => {
   return (
     <section id="certifications" className="relative py-24 overflow-hidden">
@@ -7,53 +9,73 @@ const Certifications = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-4xl md:text-5xl font-extrabold text-white"
+        >
           Certifications
-        </h2>
-        <div className="w-24 h-1 bg-purple-500 mt-4 mb-14 rounded-full"></div>
+        </motion.h2>
+
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "6rem" }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="h-1 bg-purple-500 mt-4 mb-14 rounded-full"
+        ></motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-         <CertificationCard
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.12 },
+            },
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
+          <CertificationCard
             title="Data Structures using C Programming"
             issuer="Ethnotech Academic Solutions"
             issued=" Jun 2023"
           />
+
           <CertificationCard
             title="DBMS using SQL"
             issuer="Ethnotech Academic Solutions"
             issued="Aug 2023"
           />
+
           <CertificationCard
             title="NodeJS"
             issuer="IBM"
             issued="Dec 2024"
           />
-           <CertificationCard
+
+          <CertificationCard
             title="Cloud Computing"
             issuer="Certiport"
             issued="May 2025"
           />
+
           <CertificationCard
             title="Python Essentials"
             issuer="Cisco Networking Academy"
             issued="Sept 2025"
           />
 
-          
-
-         
-
           <CertificationCard
             title="DevOps"
             issuer="IBM"
             issued="Sept 2025"
           />
-
-          
-        
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -62,7 +84,13 @@ const Certifications = () => {
 /* ===== Reusable Certification Card ===== */
 const CertificationCard = ({ title, issuer, issued }) => {
   return (
-    <div
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      whileHover={{ y: -6 }}
       className="relative h-full rounded-2xl p-6
                  bg-purple-500/15 backdrop-blur-xl
                  border border-purple-400/30
@@ -88,7 +116,7 @@ const CertificationCard = ({ title, issuer, issued }) => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

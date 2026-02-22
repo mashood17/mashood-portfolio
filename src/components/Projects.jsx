@@ -1,3 +1,23 @@
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 const Projects = () => {
   return (
     <section id="projects" className="relative py-24 overflow-hidden">
@@ -7,14 +27,32 @@ const Projects = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+        <motion.h2
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-extrabold text-white"
+        >
           Featured Projects
-        </h2>
-        <div className="w-24 h-1 bg-purple-500 mt-4 mb-14 rounded-full"></div>
+        </motion.h2>
+
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "6rem" }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="h-1 bg-purple-500 mt-4 mb-14 rounded-full"
+        ></motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           {/* ===== Project 1 ===== */}
           <ProjectCard
             featured
@@ -42,13 +80,9 @@ const Projects = () => {
               "JavaScript",
               "Bootstrap",
             ]}
-            
             code="https://github.com/mashood17/OnlineJobPortal.git"
           />
-
-          
-
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -57,7 +91,9 @@ const Projects = () => {
 /* ===== Reusable Project Card ===== */
 const ProjectCard = ({ title, description, tech, code, live, featured }) => {
   return (
-    <div
+    <motion.div
+      variants={cardVariants}
+      whileHover={{ y: -6 }}
       className={`relative h-full rounded-2xl p-8
                   bg-purple-500/15 backdrop-blur-xl
                   border border-purple-400/30
@@ -67,9 +103,11 @@ const ProjectCard = ({ title, description, tech, code, live, featured }) => {
     >
       {/* Featured badge */}
       {featured && (
-        <span className="absolute top-5 left-5 px-3 py-1 text-xs font-medium
-                         rounded-full bg-purple-600/30 text-purple-200
-                         border border-purple-400/40">
+        <span
+          className="absolute top-5 left-5 px-3 py-1 text-xs font-medium
+                     rounded-full bg-purple-600/30 text-purple-200
+                     border border-purple-400/40"
+        >
           Featured
         </span>
       )}
@@ -102,6 +140,7 @@ const ProjectCard = ({ title, description, tech, code, live, featured }) => {
           <a
             href={code}
             target="_blank"
+            rel="noreferrer"
             className="text-purple-300 hover:text-purple-100 transition"
           >
             ⌘ Code
@@ -111,13 +150,14 @@ const ProjectCard = ({ title, description, tech, code, live, featured }) => {
           <a
             href={live}
             target="_blank"
+            rel="noreferrer"
             className="text-purple-300 hover:text-purple-100 transition"
           >
             ↗ Live Demo
           </a>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

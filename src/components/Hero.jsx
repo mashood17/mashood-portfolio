@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-24"
-    >
+   <section
+  id="home"
+  className="relative min-h-screen flex items-start pt-24 md:pt-32 overflow-hidden"
+>
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#2b0f46] via-[#3b1366] to-black" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(168,85,247,0.25),transparent_60%)]" />

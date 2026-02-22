@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const Education = () => {
   return (
     <section
@@ -10,22 +12,41 @@ const Education = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Section Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-extrabold text-white"
+        >
           Education
-        </h2>
-        <div className="w-20 h-1 bg-purple-500 mt-4 mb-14 rounded-full"></div>
+        </motion.h2>
+
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "5rem" }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="h-1 bg-purple-500 mt-4 mb-14 rounded-full"
+        ></motion.div>
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-4 top-0 bottom-0 w-px bg-purple-500/40"></div>
+          <div className="absolute left-1/2 md:left-4 top-0 bottom-0 w-px bg-purple-500/40 -translate-x-1/2 md:translate-x-0"></div>
 
           {/* ===== Timeline Item 1 ===== */}
-          <div className="relative pl-14 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative md:pl-14 pl-0 mb-16"
+          >
             {/* Dot */}
-            <div className="absolute left-2 top-4 w-4 h-4 rounded-full bg-purple-500"></div>
+            <div className="absolute left-1/2 md:left-2 top-4 w-4 h-4 rounded-full bg-purple-500 -translate-x-1/2 md:translate-x-0"></div>
 
             {/* Card */}
-            <div className="rounded-2xl p-8 bg-purple-500/15 backdrop-blur-xl
+            <div className="mt-10 md:mt-0 rounded-2xl p-8 bg-purple-500/15 backdrop-blur-xl
                             border border-purple-400/30
                             shadow-[0_0_60px_rgba(168,85,247,0.25)]">
               <div className="flex items-start gap-4">
@@ -51,13 +72,19 @@ const Education = () => {
                 <li>▸ Actively involved in technical and academic activities</li>
               </ul>
             </div>
-          </div>
+          </motion.div>
 
           {/* ===== Timeline Item 2 ===== */}
-          <div className="relative pl-14 mb-16">
-            <div className="absolute left-2 top-4 w-4 h-4 rounded-full bg-purple-500"></div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative md:pl-14 pl-0 mb-16"
+          >
+            <div className="absolute left-1/2 md:left-2 top-4 w-4 h-4 rounded-full bg-purple-500 -translate-x-1/2 md:translate-x-0"></div>
 
-            <div className="rounded-2xl p-8 bg-purple-500/15 backdrop-blur-xl
+            <div className="mt-10 md:mt-0 rounded-2xl p-8 bg-purple-500/15 backdrop-blur-xl
                             border border-purple-400/30">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-purple-600/20 border border-purple-400/30">
@@ -81,13 +108,19 @@ const Education = () => {
                 <li>▸ Developed early interest in programming and technology</li>
               </ul>
             </div>
-          </div>
+          </motion.div>
 
           {/* ===== Timeline Item 3 ===== */}
-          <div className="relative pl-14">
-            <div className="absolute left-2 top-4 w-4 h-4 rounded-full bg-purple-500"></div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative md:pl-14 pl-0"
+          >
+            <div className="absolute left-1/2 md:left-2 top-4 w-4 h-4 rounded-full bg-purple-500 -translate-x-1/2 md:translate-x-0"></div>
 
-            <div className="rounded-2xl p-8 bg-purple-500/15 backdrop-blur-xl
+            <div className="mt-10 md:mt-0 rounded-2xl p-8 bg-purple-500/15 backdrop-blur-xl
                             border border-purple-400/30">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-purple-600/20 border border-purple-400/30">
@@ -111,7 +144,7 @@ const Education = () => {
                 <li>▸ Participated in school-level activities and competitions</li>
               </ul>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

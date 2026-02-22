@@ -11,6 +11,7 @@ const Navbar = () => {
   ];
 
   const [activeSection, setActiveSection] = useState("home");
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +34,7 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // run once on load
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -48,7 +49,7 @@ const Navbar = () => {
                  border-b border-purple-400/20"
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        
+
         {/* Logo */}
         <a
           href="#home"
@@ -58,7 +59,7 @@ const Navbar = () => {
           Portfolio
         </a>
 
-        {/* Nav Links */}
+        {/* Desktop Nav */}
         <ul className="hidden md:flex gap-10 text-sm font-medium">
           {navItems.map((item) => {
             const isActive = activeSection === item.link;
@@ -76,7 +77,6 @@ const Navbar = () => {
                   {item.name}
                 </a>
 
-                {/* Active underline */}
                 <span
                   className={`absolute -bottom-2 left-0 h-[2px]
                               bg-gradient-to-r from-purple-500 to-violet-500
@@ -87,7 +87,45 @@ const Navbar = () => {
             );
           })}
         </ul>
+
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-purple-200 text-2xl"
+        >
+          ☰
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden bg-black/90 backdrop-blur-xl
+                     border-t border-purple-400/20"
+        >
+          <ul className="flex flex-col">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={`#${item.link}`}
+                  onClick={() => setOpen(false)}
+                  className={`block px-6 py-4 text-sm
+                    ${
+                      activeSection === item.link
+                        ? "text-purple-200 bg-purple-800/30"
+                        : "text-gray-300 hover:text-purple-200"
+                    }`}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      )}
     </motion.nav>
   );
 };

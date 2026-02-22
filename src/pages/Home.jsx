@@ -8,6 +8,7 @@ import Certifications from "../components/Certifications";
 import Internships from  "../components/Internships";
 import Research from  "../components/Research";
 import Footer from "../components/Footer";
+import Languages from "../components/Languages";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Research/>
       <Internships/>
       <Certifications/>
+      <Languages/>
       <Contact />
       <Footer/>
 

@@ -1,3 +1,24 @@
+import { motion } from "framer-motion";
+
+/* ===== Animation Variants ===== */
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 const Skills = () => {
   return (
     <section id="skills" className="relative py-24 overflow-hidden">
@@ -7,87 +28,84 @@ const Skills = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+        <motion.h2
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-extrabold text-white"
+        >
           Skills & Technologies
-        </h2>
-        <div className="w-24 h-1 bg-purple-500 mt-4 mb-14 rounded-full"></div>
+        </motion.h2>
+
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "6rem" }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="h-1 bg-purple-500 mt-4 mb-14 rounded-full"
+        ></motion.div>
 
         {/* ===== Main Grid ===== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          {/* Programming Languages */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           <SkillCard
             title="Programming Languages"
             icon="⌨️"
             skills={["C", "Python"]}
           />
 
-          {/* Frontend */}
           <SkillCard
             title="Frontend Development"
             icon="💻"
-            skills={[
-              "HTML",
-              "CSS",
-              "JavaScript",
-              "React.js",
-              "Tailwind CSS",
-            ]}
+            skills={["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS"]}
           />
 
-          {/* Backend */}
           <SkillCard
             title="Backend Development"
             icon="🧠"
-            skills={[
-              "Python",
-              "Flask",
-              "Node.js",
-              "Express.js",
-            ]}
+            skills={["Python", "Flask", "Node.js", "Express.js"]}
           />
 
-          {/* Cloud & DevOps */}
           <SkillCard
             title="Cloud & DevOps"
             icon="☁️"
-            skills={[
-              "AWS",
-              "Microsoft Azure",
-              "Git",
-              "GitHub",
-            ]}
+            skills={["AWS", "Microsoft Azure", "Git", "GitHub"]}
           />
 
-          {/* Databases */}
           <SkillCard
             title="Databases"
             icon="🗄️"
-            skills={[
-              "MySQL",
-              "MongoDB",
-              "PostgreSQL",
-            ]}
+            skills={["MySQL", "MongoDB", "PostgreSQL"]}
           />
 
-          {/* AI & ML */}
           <SkillCard
             title="Tools & Platforms"
             icon="🛠️"
             skills={[
-                "VS Code",
-                "Jupyter Notebook",
-                "Linux",
-                "Postman",
-                "MS Excel",
-              ]}
+              "VS Code",
+              "Jupyter Notebook",
+              "Linux",
+              "Postman",
+              "MS Excel",
+            ]}
           />
 
-          {/* Additional Expertise — full width */}
-          <div className="md:col-span-2 lg:col-span-3">
-            <div className="rounded-2xl p-8 bg-purple-500/15 backdrop-blur-xl
-                            border border-purple-400/30
-                            shadow-[0_0_60px_rgba(168,85,247,0.25)]">
+          {/* ===== Additional Expertise (Full Width) ===== */}
+          <motion.div
+            variants={cardVariants}
+            className="md:col-span-2 lg:col-span-3"
+          >
+            <div
+              className="rounded-2xl p-8 bg-purple-500/15 backdrop-blur-xl
+                         border border-purple-400/30
+                         shadow-[0_0_60px_rgba(168,85,247,0.25)]"
+            >
               <h3 className="text-xl font-semibold text-white mb-6">
                 Additional Expertise
               </h3>
@@ -113,9 +131,8 @@ const Skills = () => {
                 ))}
               </div>
             </div>
-          </div>
-
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
@@ -124,7 +141,9 @@ const Skills = () => {
 /* ===== Reusable Skill Card ===== */
 const SkillCard = ({ title, icon, skills }) => {
   return (
-    <div
+    <motion.div
+      variants={cardVariants}
+      whileHover={{ y: -6 }}
       className="h-full rounded-2xl p-6 bg-purple-500/15 backdrop-blur-xl
                  border border-purple-400/30
                  shadow-[0_0_50px_rgba(168,85,247,0.25)]
@@ -152,7 +171,7 @@ const SkillCard = ({ title, icon, skills }) => {
           </span>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

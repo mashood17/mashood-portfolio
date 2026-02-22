@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const Internships = () => {
   return (
     <section id="experience" className="relative py-24 overflow-hidden">
@@ -7,20 +9,55 @@ const Internships = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-4xl md:text-5xl font-extrabold text-white"
+        >
           Internships & Experience
-        </h2>
-        <div className="w-24 h-1 bg-purple-500 mt-4 mb-14 rounded-full"></div>
+        </motion.h2>
+
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "6rem" }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="h-1 bg-purple-500 mt-4 mb-14 rounded-full"
+        ></motion.div>
 
         {/* Experience Card */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          whileHover={{ y: -4 }}
           className="rounded-2xl p-8 bg-purple-500/15 backdrop-blur-xl
                      border border-purple-400/30
-                     shadow-[0_0_60px_rgba(168,85,247,0.25)]"
+                     shadow-[0_0_60px_rgba(168,85,247,0.25)]
+                     hover:shadow-[0_0_90px_rgba(168,85,247,0.35)]
+                     transition"
         >
-          <ul className="space-y-6 text-gray-300 text-lg">
-
-            <li>
+          <motion.ul
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.15 },
+              },
+            }}
+            className="space-y-6 text-gray-300 text-lg"
+          >
+            <motion.li
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
               <span className="text-white font-semibold">
                 Python Full Stack Developer – Virtual Internship
               </span>
@@ -31,9 +68,14 @@ const Internships = () => {
               <span className="text-gray-400">
                 {" "} | Oct – Dec 2024
               </span>
-            </li>
+            </motion.li>
 
-            <li>
+            <motion.li
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
               <span className="text-white font-semibold">
                 Cloud Computing – Virtual Internship
               </span>
@@ -44,9 +86,14 @@ const Internships = () => {
               <span className="text-gray-400">
                 {" "} | Jul – Sep 2024
               </span>
-            </li>
+            </motion.li>
 
-            <li>
+            <motion.li
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
               <span className="text-white font-semibold">
                 Cybersecurity – Virtual Internship
               </span>
@@ -57,8 +104,14 @@ const Internships = () => {
               <span className="text-gray-400">
                 {" "} | Jan – Mar 2025
               </span>
-            </li>
-             <li>
+            </motion.li>
+
+            <motion.li
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
               <span className="text-white font-semibold">
                 Android App Development using Gen AI
               </span>
@@ -67,12 +120,11 @@ const Internships = () => {
                 Mind Matrix
               </span>
               <span className="text-gray-400">
-                {" "} | Feb 2026-Present
+                {" "} | Feb 2026 – Present
               </span>
-            </li>
-
-          </ul>
-        </div>
+            </motion.li>
+          </motion.ul>
+        </motion.div>
       </div>
     </section>
   );

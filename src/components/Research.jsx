@@ -9,23 +9,39 @@ const Research = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white">
-          Research & Publications
-        </h2>
-        <div className="w-24 h-1 bg-purple-500 mt-4 mb-14 rounded-full"></div>
-
-        {/* Publication Card */}
-        <motion.div
+        <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-4xl md:text-5xl font-extrabold text-white"
+        >
+          Research & Publications
+        </motion.h2>
+
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "6rem" }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="h-1 bg-purple-500 mt-4 mb-14 rounded-full"
+        ></motion.div>
+
+        {/* Publication Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          whileHover={{ y: -4 }}
           className="rounded-2xl p-8 bg-purple-500/15 backdrop-blur-xl
                      border border-purple-400/30
-                     shadow-[0_0_60px_rgba(168,85,247,0.25)]"
+                     shadow-[0_0_60px_rgba(168,85,247,0.25)]
+                     hover:shadow-[0_0_90px_rgba(168,85,247,0.35)]
+                     transition"
         >
           {/* Badges */}
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-wrap items-center gap-3 mb-6">
             <span
               className="px-3 py-1 text-xs font-medium rounded-full
                          bg-purple-600/30 text-purple-200
@@ -67,6 +83,7 @@ const Research = () => {
               href="https://www.jetir.org/view?paper=JETIRGX06045"
               target="_blank"
               rel="noreferrer"
+              initial={{ opacity: 0.85 }}
               whileHover={{ opacity: 1 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
