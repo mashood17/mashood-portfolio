@@ -3,8 +3,26 @@ import { useEffect, useState } from "react";
 const Cursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    // Detect desktop (no touch + large screen)
+    const checkDevice = () => {
+      const isTouchDevice =
+        "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+      setIsDesktop(!isTouchDevice && window.innerWidth >= 1024);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
+
+  useEffect(() => {
+    if (!isDesktop) return;
+
     const moveCursor = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
@@ -25,7 +43,10 @@ const Cursor = () => {
         el.removeEventListener("mouseleave", removeHover);
       });
     };
-  }, []);
+  }, [isDesktop]);
+
+  // ❌ Do not render cursor on mobile
+  if (!isDesktop) return null;
 
   return (
     <>
