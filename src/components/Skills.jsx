@@ -26,16 +26,26 @@ const Skills = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-black via-[#2b0f46] to-black"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(168,85,247,0.25),transparent_60%)]"></div>
 
+
+      
       <div className="relative z-10 max-w-6xl mx-auto px-6">
+
+        <div style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 11.5, color: "rgba(225, 210, 240, 1)",
+                letterSpacing: "3px", textTransform: "uppercase",
+                marginBottom: 12, opacity: 0.85,
+              }}>{"<SKILLS/>"}</div>
+
         {/* Heading */}
         <motion.h2
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-extrabold text-white"
+          style={{
+              fontFamily: "'Syne', sans-serif", fontWeight: 800,
+              fontSize: 38, color: "#fff", lineHeight: 1.1,
+              marginBottom: 12,
+            }}
         >
-          Skills & Technologies
+          Tech Stack
         </motion.h2>
 
         <motion.div
@@ -46,6 +56,23 @@ const Skills = () => {
           className="h-1 bg-purple-500 mt-4 mb-14 rounded-full"
         ></motion.div>
 
+<div style={{
+  fontSize: 15.5,
+  color: "#A0A0A0",
+  lineHeight: 2.75,
+  maxWidth: 560,
+  marginBottom: 40,
+}}> 
+         <p style={{
+              fontSize: 15.5, color: "#A0A0A0",
+              lineHeight: 1.75, maxWidth: 560,
+              fontFamily: "'DM Sans', sans-serif",
+            }}>
+              The tools I reach for when building production-grade applications —
+              chosen for reliability, not just trend.
+            </p>
+            </div>
+
         {/* ===== Main Grid ===== */}
         <motion.div
           variants={containerVariants}
@@ -54,46 +81,45 @@ const Skills = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          <SkillCard
-            title="Programming Languages"
-            icon="⌨️"
-            skills={["C", "Python"]}
-          />
+      
 
           <SkillCard
             title="Frontend Development"
             icon="💻"
-            skills={["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS"]}
+            skills={["React.js", "JavaScript ES6+", "Tailwind CSS", "HTML5", "CSS3","Component Architecture"]}
           />
 
           <SkillCard
             title="Backend Development"
-            icon="🧠"
-            skills={["Python", "Flask", "Node.js", "Express.js"]}
-          />
-
-          <SkillCard
-            title="Cloud & DevOps"
-            icon="☁️"
-            skills={["AWS", "Microsoft Azure", "Git", "GitHub"]}
+            icon="⚙️"
+            skills={["Flask", "REST APIs", "WebSockets", "Flask-SocketIO"]}
           />
 
           <SkillCard
             title="Databases"
             icon="🗄️"
-            skills={["MySQL", "MongoDB", "PostgreSQL"]}
+            skills={["PostgreSQL", "MySQL", "MongoDB"]}
           />
 
           <SkillCard
-            title="Tools & Platforms"
-            icon="🛠️"
+            title="Auth & Security"
+            icon="🔐"
+            skills={["JWT Auth", "Token Rotation", "Axios Interceptors", "Refresh Tokens"]}
+          />
+
+          <SkillCard
+            title="Testing"
+            icon="🧪"
             skills={[
-              "VS Code",
-              "Jupyter Notebook",
-              "Linux",
-              "Postman",
-              "MS Excel",
+              "Pytest",
+              "Locust (Load Testing)",
             ]}
+          />
+
+          <SkillCard
+            title="Tools & Deploy"
+            icon="🛠️"
+            skills={["Git", "GitHub", "Postman", "Docker", "Vercel", "Render"]}
           />
 
           {/* ===== Additional Expertise (Full Width) ===== */}
@@ -112,13 +138,14 @@ const Skills = () => {
 
               <div className="flex flex-wrap gap-3">
                 {[
-                  "REST APIs",
-                  "API Integration",
+                  "REST API Design",
                   "Responsive Design",
-                  "System Design Basics",
-                  "Problem Solving",
+                  "Load Testing",
+                  "System Design",
+                  "Component Libraries",
                   "Team Collaboration",
                   "Agile / Scrum",
+                  "Problem Solving"
                 ].map((item) => (
                   <span
                     key={item}

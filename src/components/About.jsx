@@ -16,8 +16,18 @@ const About = () => {
         className="relative z-10 max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center"
       >
 <div className="lg:col-span-2">
-  <h2 className="text-4xl md:text-5xl font-extrabold text-white">
-    About Me
+  <div style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 11.5, color: "rgba(225, 210, 240, 1)",
+                letterSpacing: "3px", textTransform: "uppercase",
+                marginBottom: 12, opacity: 0.85,
+              }}>{"<ABOUT ME/>"}</div>
+  <h2  style={{
+                fontFamily: "'Syne', sans-serif", fontWeight: 800,
+                fontSize: 38, color: "#fff", lineHeight: 1.1,
+                marginBottom: 18,
+              }}>
+    Who Am I?
   </h2>
   <div className="w-20 h-1 bg-purple-500 mt-4 mb-14 rounded-full"></div>
 </div>
@@ -78,10 +88,12 @@ const About = () => {
             transition={{ delay: 0.1 }}
             className="text-gray-300 leading-relaxed mb-6"
           >
-            I’m a passionate software engineer specializing in full-stack
-            development and AI-driven applications. With a strong foundation in
-            modern web technologies, I focus on building solutions that create
-            real-world impact.
+           I'm a full-stack developer specializing in{" "}
+                <span style={{ color: "#rgba(235, 220, 250, 1)", fontWeight: 600 }}>React</span>{" "}
+                and{" "}
+                <span style={{ color: "#rgba(235, 220, 250, 1)", fontWeight: 600 }}>Flask</span>,
+                with a track record of independently building and shipping
+                real-time web applications from scratch.
           </motion.p>
 
           <motion.p
@@ -90,10 +102,10 @@ const About = () => {
             transition={{ delay: 0.2 }}
             className="text-gray-300 leading-relaxed mb-6"
           >
-            My journey in software engineering is driven by curiosity and
-            continuous learning. I enjoy working in collaborative environments
-            where innovation meets practical problem-solving, and I’m always
-            eager to take on new challenges.
+            I'm comfortable owning the full stack — JWT-secured REST APIs,
+                WebSocket infrastructure, PostgreSQL, and UI decisions down to
+                the component level. I don't just write features; I build systems
+                that hold up under load.
           </motion.p>
 
           <motion.p
@@ -102,10 +114,13 @@ const About = () => {
             transition={{ delay: 0.3 }}
             className="text-gray-300 leading-relaxed"
           >
-            When I’m not coding, you’ll find me exploring emerging technologies,
-            contributing to projects, and continuously improving my skills to
-            stay aligned with industry trends.
-          </motion.p>
+            Built and deployed three production projects, published one
+                research paper, and consistently see ideas through to production.
+                Based in{"  "}
+                <span style={{ color: "rgba(235, 220, 250, 1)", fontWeight: 500 }}>
+                     Mangaluru, Karnataka
+                </span>.
+            </motion.p>
         </motion.div>
 
       </motion.div>

@@ -26,16 +26,25 @@ const Projects = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(168,85,247,0.25),transparent_60%)]"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
+
+        <div style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 11.5, color: "rgba(225, 210, 240, 1)",
+                letterSpacing: "3px", textTransform: "uppercase",
+                marginBottom: 12, opacity: 0.85,
+              }}>{"<PROJECTS/>"}</div>
+
         {/* Heading */}
         <motion.h2
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-extrabold text-white"
-        >
-          Featured Projects
+          style={{
+                fontFamily: "'Syne', sans-serif", fontWeight: 800,
+                fontSize: 38, color: "#fff", lineHeight: 1.1,
+                marginBottom: 18,
+              }}  >
+          Things I've Built
         </motion.h2>
+
+        
 
         <motion.div
           initial={{ width: 0 }}
@@ -44,6 +53,18 @@ const Projects = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="h-1 bg-purple-500 mt-4 mb-14 rounded-full"
         ></motion.div>
+
+        <div >
+        <p style={{
+  fontSize: 15.5,
+  color: "#A0A0A0",
+  lineHeight: 1.75,
+  maxWidth: 560,
+  marginBottom: 40,
+}}>
+              Shipped to production, not just committed to a repo.
+            </p>
+            </div>
 
         {/* Grid */}
         <motion.div
@@ -56,32 +77,53 @@ const Projects = () => {
           {/* ===== Project 1 ===== */}
           <ProjectCard
             featured
-            title="Student AI Hub – AI Productivity Platform"
-            description="Built an AI-powered academic productivity platform with multiple tools including code generation, debugging, summarization, chatbot, resume analysis, roadmap generation, and task management. Designed responsive UI and integrated backend APIs for smooth workflows."
+            title="CampusLoop – Real-time Campus Communication Platform"
+            description="Replaced fragmented WhatsApp-based communication with a structured real-time platform. Secured 20+ REST endpoints with JWT token rotation. Load tested at 50 concurrent users — 72ms avg response, 23+ RPS, 0% failure rate. 21 pytest tests, 100% pass."
             tech={[
               "React",
-              "Node.js",
-              "Express",
+              "Flask",
               "PostgreSQL",
-              "LLMs",
+              "WebSockets",
+              "JWT",
             ]}
-            code="https://github.com/karthikajay04/Student-AI-Hub"
-            live="https://frontend-k5qm.onrender.com/"
+            code="https://github.com/mashood17/campus_loop"
+            live="https://campus-loop-pi.vercel.app"
           />
 
           {/* ===== Project 2 ===== */}
-          <ProjectCard
+         <ProjectCard
             featured
-            title="Online Job Portal – Web Application"
-            description="Developed a responsive job portal featuring secure authentication, role-based dashboards, job posting, applications, and profile management. Focused on frontend architecture with contributions to backend workflows."
+            title="GitInsight – GitHub Developer Analytics Platform"
+            description="Full-stack analytics platform with a custom developer scoring algorithm — classifies developers as Beginner, Intermediate, or Advanced based on weighted repos, stars, and followers. Validated by benchmarking against known profiles."
             tech={[
-              "PHP",
-              "MySQL",
+              "Python",
+              "Flask",
               "JavaScript",
-              "Bootstrap",
+              "Chart.js",
+              "GitHub REST API",
             ]}
-            code="https://github.com/mashood17/OnlineJobPortal.git"
+            code="https://github.com/mashood17/gitinsight"
+            live="https://gitinsight-lake.vercel.app/"
           />
+
+          {/* ===== Project 3 ===== */}
+         <ProjectCard
+            featured
+            title="Student AI Hub – AI Productivity Platform"
+            description="Sole frontend developer on a team project. Built 7+ React modules: AI code generator, debugger, chatbot, doc summarizer, resume analyzer, roadmap generator, and task manager. Integrated 4 LLM providers with dynamic model switching."
+            tech={[
+              "React",
+              "Node.js",
+              "Express.js",
+              "PostgreSQL",
+              "LLaMA",
+              "Cerebras",
+              "OpenRouter"
+            ]}
+            code="https://github.com/mashood17/student-ai-hub"
+            live="https://frontend-k5qm.onrender.com/"
+          />
+
         </motion.div>
       </div>
     </section>

@@ -15,11 +15,11 @@ const Home = () => {
     <>
       <Hero />
       <About />
-      <Education />
       <Skills />
       <Projects />
-      <Research/>
       <Internships/>
+      <Research/>
+      <Education />
       <Certifications/>
       <Languages/>
       <Contact />

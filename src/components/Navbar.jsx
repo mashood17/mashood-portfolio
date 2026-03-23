@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 const Navbar = () => {
   const navItems = [
-    { name: "About", link: "about" },
-    { name: "Education", link: "education" },
-    { name: "Skills", link: "skills" },
-    { name: "Projects", link: "projects" },
-    { name: "Contact", link: "contact" },
+    { name: "<About/>", link: "about" },
+      { name: "<Skills/>", link: "skills" },
+    { name: "<Projects/>", link: "projects" },
+    { name: "<Education/>", link: "education" },
+    { name: "<Contact/>", link: "contact" },
   ];
 
   const [activeSection, setActiveSection] = useState("home");
@@ -56,7 +56,9 @@ const Navbar = () => {
           className="text-xl font-extrabold tracking-wide
                      text-purple-200 hover:text-purple-100 transition"
         >
-          Portfolio
+         <span >mashood</span>
+            <span style={{ color: "rgba(196, 196, 196, 0.4)" }}> :: </span>
+            <span >dev</span>
         </a>
 
         {/* Desktop Nav */}

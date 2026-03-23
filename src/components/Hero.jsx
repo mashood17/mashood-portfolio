@@ -17,34 +17,57 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
       >
-        {/* Badge */}
+       {/* 
+       {/* Badge */}
         <motion.div
           variants={item}
-          className="inline-flex px-5 py-2 mb-6 rounded-full
-                     border border-purple-400/30 bg-purple-500/10
-                     text-purple-200 text-sm backdrop-blur"
+        //  className="inline-flex px-5 py-2 mb-6 rounded-full
+        //             border border-purple-400/30 bg-purple-500/10
+          //           text-purple-200 text-sm backdrop-blur"
         >
-          Available for opportunities
+          {/*Available for opportunities*/}
+        </motion.div> 
+            
+        {/* Pre-label */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+          style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 12.5, color: "rgba(225, 210, 240, 1)",
+            letterSpacing: "3.5px", marginBottom: 28, opacity: 0.9,
+          }}
+        >
+          {"< Hello World, I'm />"}
         </motion.div>
 
         {/* Name */}
-        <motion.h1
-          variants={item}
-          className="text-4xl md:text-7xl lg:text-8xl
-                     font-extrabold tracking-tight
-                     text-transparent bg-clip-text
-                     bg-gradient-to-r from-purple-200 via-purple-100 to-white
-                     drop-shadow-[0_6px_24px_rgba(168,85,247,0.25)]"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.2, ease: "easeOut" }}
+          style={{ marginBottom: 24 }}
         >
-          Mahammad Mashood
-        </motion.h1>
+          <div style={{
+            fontFamily: "'Syne', sans-serif",
+            fontWeight: 700,
+            fontSize: "clamp(40px, 11vw, 88px)",
+            lineHeight: 1,
+            letterSpacing: "-2px",
+            display: "block",
+            WebkitTextStroke: "2px rgba(225, 210, 240, 1)",
+            color: "transparent",
+            marginTop: 4,
+          }}>MAHAMMAD MASHOOD</div>
+        </motion.div>
 
         {/* Role */}
         <motion.p
           variants={item}
           className="mt-6 text-xl md:text-2xl text-purple-200/90 max-w-3xl"
         >
-          Software Engineer
+          Full Stack Developer | Software Engineer 
         </motion.p>
 
         {/* Description */}
@@ -52,8 +75,9 @@ const Hero = () => {
           variants={item}
           className="mt-6 text-base md:text-lg text-purple-300/70 max-w-2xl"
         >
-          Building intelligent, scalable solutions that bridge innovation and
-          impact. Transforming complex problems into elegant code.
+           Building intelligent, scalable web applications from the ground up —
+          JWT-secured APIs, real-time WebSocket infrastructure, and pixel-level
+          UI decisions. Ideas through to production.
         </motion.p>
 
         {/* Buttons */}
@@ -71,8 +95,8 @@ const Hero = () => {
           <button
   onClick={() => {
     const link = document.createElement("a");
-    link.href = "/Mahammad_Mashood_Resume.pdf";
-    link.download = "Mahammad_Mashood_Resume.pdf";
+    link.href = "/Mahammad_Mashood_FullStackDeveloper.pdf";
+    link.download = "Mahammad_Mashood_FullStackDeveloper.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

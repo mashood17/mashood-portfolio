@@ -9,14 +9,30 @@ const Languages = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Heading */}
+       <div style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 11.5,
+          color: "rgba(225, 210, 240, 1)",
+          letterSpacing: "3px",
+          textTransform: "uppercase",
+          marginBottom: 12,
+          opacity: 0.85,
+        }}>
+          {"<Languages/>"}
+        </div>
+
+        {/* Heading */}
         <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-4xl md:text-5xl font-extrabold text-white"
+          style={{
+            fontFamily: "'Syne', sans-serif",
+            fontWeight: 800,
+            fontSize: 38,
+            color: "#fff",
+            lineHeight: 1.1,
+            marginBottom: 12,
+          }}
         >
-          Languages Known
+Languages & Communication
         </motion.h2>
 
         <motion.div
@@ -41,7 +57,7 @@ const Languages = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <LanguageCard language="English" level="Professional " />
-        <LanguageCard language="Hindi" level="Native" />
+        <LanguageCard language="Hindi" level="Conversational" />
           <LanguageCard language="Kannada" level="Native " />
           <LanguageCard language="Malayalam" level="Native " />
           <LanguageCard language="Tamil" level="Basic" />
